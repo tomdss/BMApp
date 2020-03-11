@@ -14,15 +14,16 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [NetworkModule::class, AppModule::class, AndroidSupportInjectionModule::class, ActivityBindingModule::class])
-interface AppComponent : AndroidInjector<DaggerApplication> {
+interface AppComponent : AndroidInjector<AppApplication> {
 
-    fun inject(application: AppApplication)
+    override fun inject(application: AppApplication)
 
     @Component.Builder
     interface Builder {
+
         @BindsInstance
         fun application(application: Application): Builder
 
-        fun build(): AppComponent?
+        fun build(): AppComponent
     }
 }

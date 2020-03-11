@@ -1,6 +1,7 @@
 package com.example.basemvvm
 
 import com.example.basemvvm.di.component.AppComponent
+import com.example.basemvvm.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 

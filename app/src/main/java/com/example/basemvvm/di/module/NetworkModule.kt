@@ -13,6 +13,7 @@ import javax.inject.Singleton
 
 @Module(includes = [ViewModelModule::class])
 class NetworkModule {
+    
     @Singleton
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
