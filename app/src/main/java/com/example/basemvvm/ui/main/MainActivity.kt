@@ -13,4 +13,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun viewModelClass(): Class<MainViewModel> {
         return MainViewModel::class.java
     }
+
+    override fun handleViewState() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun initView() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

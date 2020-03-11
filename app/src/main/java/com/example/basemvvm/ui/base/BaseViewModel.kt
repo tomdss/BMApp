@@ -2,11 +2,16 @@ package com.example.basemvvm.ui.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.basemvvm.data.repository.IApiRepository
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-open class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
-    protected val viewState = MutableLiveData<Int>()
+    @Inject
+    protected lateinit var apiRepository: IApiRepository
+
+    val viewState = MutableLiveData<Int>()
     protected val disposable = CompositeDisposable()
 
     override fun onCleared() {
