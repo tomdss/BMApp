@@ -2,6 +2,7 @@ package com.example.basemvvm.ui.base
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
@@ -36,8 +37,9 @@ abstract class BaseActivity<T : ViewDataBinding, M : BaseViewModel> : DaggerAppC
 
     abstract fun hideLoading()
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("AAAAAAAAA", "dasda")
+        super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutRes());
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this, viewModelFactory).get(viewModelClass())

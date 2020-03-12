@@ -20,7 +20,7 @@ class NetworkModule {
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         //TODO fix here
-        return Retrofit.Builder().baseUrl("https/google.com")
+        return Retrofit.Builder().baseUrl("https://www.google.com/")
             .client(client)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())

@@ -29,7 +29,7 @@ abstract class BaseFragment<T : ViewDataBinding, M : BaseViewModel> : DaggerFrag
 
     protected abstract fun viewModelClass(): Class<M>
 
-    protected abstract fun handleViewState()
+    protected abstract fun handleViewState(viewState: Int)
 
     protected abstract fun initView()
 
@@ -52,7 +52,7 @@ abstract class BaseFragment<T : ViewDataBinding, M : BaseViewModel> : DaggerFrag
                 when (viewState) {
                     ViewState.SHOW_LOADING -> (activity as? BaseActivity<*, *>)?.showLoading()
                     ViewState.HIDE_LOADING -> (activity as? BaseActivity<*, *>)?.hideLoading()
-                    else -> handleViewState()
+                    else -> handleViewState(viewState)
                 }
             }
         })
