@@ -58,4 +58,9 @@ abstract class BaseFragment<T : ViewDataBinding, M : BaseViewModel> : DaggerFrag
         })
         activity?.supportFragmentManager
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.resetViewState()
+    }
 }

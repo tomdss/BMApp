@@ -1,6 +1,8 @@
 package com.example.basemvvm.di.module
 
 import com.example.basemvvm.data.repository.IApiRepository
+import com.example.basemvvm.utils.constants.Constant
+import com.example.basemvvm.utils.network.NetworkInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -33,14 +35,14 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(): OkHttpClient? {
+    fun provideHttpClient(): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-//            .addInterceptor(NetworkConnectionInterceptor())
-//            .connectTimeout(Define.Network.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-//            .readTimeout(Define.Network.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+            .addInterceptor(NetworkInterceptor())
+            .connectTimeout(Constant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(Constant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .build()
     }
 }

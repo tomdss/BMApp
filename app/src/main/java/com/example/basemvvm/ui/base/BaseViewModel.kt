@@ -14,6 +14,14 @@ abstract class BaseViewModel : ViewModel() {
     val viewState = MutableLiveData<Int>()
     protected val disposable = CompositeDisposable()
 
+    /**
+     * reset view state to null to avoid re-observe when config change
+     * call this method in fragment's onDestroyView method
+     */
+    fun resetViewState() {
+        viewState.value = null
+    }
+
     override fun onCleared() {
         super.onCleared()
         disposable.clear()
