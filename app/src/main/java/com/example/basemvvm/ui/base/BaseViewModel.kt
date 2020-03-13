@@ -2,7 +2,6 @@ package com.example.basemvvm.ui.base
 
 import androidx.lifecycle.ViewModel
 import com.example.basemvvm.data.repository.IApiRepository
-import com.example.basemvvm.ui.custom.SingleLiveEvent
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 

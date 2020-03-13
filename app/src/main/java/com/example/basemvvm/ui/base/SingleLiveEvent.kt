@@ -1,4 +1,4 @@
-package com.example.basemvvm.ui.custom
+package com.example.basemvvm.ui.base
 
 import android.util.Log
 import androidx.annotation.MainThread
