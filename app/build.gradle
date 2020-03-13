@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.basemvvm"
-        minSdkVersion 22
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -80,4 +80,7 @@ dependencies {
     // navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.2.1"
+
+    // secure sensitive data but it require min-sdk = 23 (Android 6)
+    implementation "androidx.security:security-crypto:1.0.0-alpha02"
 }
