@@ -36,8 +36,8 @@ abstract class BaseActivity<T : ViewDataBinding, M : BaseViewModel> : DaggerAppC
 
     abstract fun hideLoading()
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutRes());
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this, viewModelFactory).get(viewModelClass())
@@ -53,17 +53,20 @@ abstract class BaseActivity<T : ViewDataBinding, M : BaseViewModel> : DaggerAppC
         })
     }
 
-
-    /*
-   * we register the BaseActivity as subscriber
-   * and specify what needs to be done in case of NetworkState
-   */
+    /**
+     * we register the BaseActivity as subscriber
+     * and specify what needs to be done in case of NetworkState
+     */
     override fun onResume() {
         super.onResume()
         NetworkEvent.register(this, Consumer {
             when (it) {
                 //TODO handle network state in here
-                NetworkState.NO_INTERNET -> Toast.makeText(this,"NO internet", Toast.LENGTH_SHORT).show()
+                NetworkState.NO_INTERNET -> Toast.makeText(
+                    this,
+                    "NO internet",
+                    Toast.LENGTH_SHORT
+                ).show()
 //                NetworkState.NOT_FOUND -> // do something
 //                NetworkState.FORBIDDEN -> // do something
 //                NetworkState.BAD_REQUEST -> // do something
