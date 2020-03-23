@@ -1,5 +1,6 @@
 package com.example.basemvvm.di.module
 
+import com.example.basemvvm.ui.list_category.ListCategoryFragment
 import com.example.basemvvm.ui.login.LoginFragment
 import com.example.basemvvm.ui.main.MainActivity
 import com.example.basemvvm.ui.register.RegisterFragment
@@ -25,5 +26,8 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
     abstract fun bindLoginFragment(): LoginFragment
+
+    @ContributesAndroidInjector
+    abstract fun bindListCategoryFragment(): ListCategoryFragment
 
 }

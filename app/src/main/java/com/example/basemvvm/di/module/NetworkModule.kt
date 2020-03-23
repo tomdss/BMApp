@@ -1,5 +1,6 @@
 package com.example.basemvvm.di.module
 
+import com.example.basemvvm.BuildConfig
 import com.example.basemvvm.data.repository.IApiRepository
 import com.example.basemvvm.utils.constants.Constant
 import com.example.basemvvm.utils.network.NetworkInterceptor
@@ -19,8 +20,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
-        //TODO fix here
-        return Retrofit.Builder().baseUrl("https://www.google.com/")
+        return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
             .client(client)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())

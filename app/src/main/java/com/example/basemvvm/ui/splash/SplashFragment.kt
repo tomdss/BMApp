@@ -26,7 +26,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>() {
 
     override fun initView() {
         Handler().postDelayed(Runnable {
-            findNavController().navigate(R.id.splashToRegister)
+            findNavController().navigate(R.id.splashToListCategory)
         }, 2000)
     }
 

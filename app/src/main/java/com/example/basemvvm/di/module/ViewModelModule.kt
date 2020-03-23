@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.basemvvm.di.util.ViewModelFactory
 import com.example.basemvvm.di.util.ViewModelKey
+import com.example.basemvvm.ui.list_category.ListCategoryViewModel
 import com.example.basemvvm.ui.login.LoginViewModel
 import com.example.basemvvm.ui.main.MainViewModel
 import com.example.basemvvm.ui.register.RegisterViewModel
@@ -43,4 +44,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ListCategoryViewModel::class)
+    abstract fun bindListCategoryViewModel(listCategoryViewModel: ListCategoryViewModel): ViewModel
 }

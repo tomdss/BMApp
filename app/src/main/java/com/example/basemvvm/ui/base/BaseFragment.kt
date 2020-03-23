@@ -50,17 +50,20 @@ abstract class BaseFragment<T : ViewDataBinding, M : BaseViewModel> : DaggerFrag
         viewModel.viewState.observe(viewLifecycleOwner, Observer { viewState ->
             viewState?.run {
                 when (viewState) {
-                    ViewState.SHOW_LOADING -> (activity as? BaseActivity<*, *>)?.showLoading()
-                    ViewState.HIDE_LOADING -> (activity as? BaseActivity<*, *>)?.hideLoading()
+                    ViewState.SHOW_LOADING -> showLoading()
+                    ViewState.HIDE_LOADING -> hideLoading()
                     else -> handleViewState(viewState)
                 }
             }
         })
-        activity?.supportFragmentManager
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.resetViewState()
+    fun showLoading() {
+        (activity as? BaseActivity<*, *>)?.showLoading()
     }
+
+    fun hideLoading() {
+        (activity as? BaseActivity<*, *>)?.hideLoading()
+    }
+
 }

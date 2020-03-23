@@ -29,5 +29,11 @@ class ViewState {
             const val GO_HOME = 2
         }
     }
+
+    class ListCategory {
+        companion object {
+            const val GET_LIST_CATERORY_SUCCESS = 1
+        }
+    }
 }
 

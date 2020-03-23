@@ -13,10 +13,17 @@
         <action
             android:id="@+id/splashToRegister"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/splashToListCategory"
+            app:destination="@id/listCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.basemvvm.ui.register.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register"/>
+    <fragment
+        android:id="@+id/listCategoryFragment"
+        android:name="com.example.basemvvm.ui.list_category.ListCategoryFragment"
+        android:label="ListCategoryFragment" />
 </navigation>
