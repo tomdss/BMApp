@@ -35,5 +35,12 @@ class ViewState {
             const val GET_LIST_CATERORY_SUCCESS = 1
         }
     }
+
+    class ListPopular{
+        companion object {
+            const val GET_LIST_POPULAR_SUCCESS = 1
+        }
+    }
+
 }
 

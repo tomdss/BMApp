@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.basemvvm.R
 import com.example.basemvvm.databinding.FragmentListCategoryBinding
-import com.example.basemvvm.ui.adapter.ListCategoryAdapter
+import com.example.basemvvm.ui.adapter.ListPopularAdapter
 import com.example.basemvvm.ui.base.BaseFragment
 import com.example.basemvvm.utils.constants.ViewState
 
@@ -28,14 +28,17 @@ class ListCategoryFragment : BaseFragment<FragmentListCategoryBinding, ListCateg
     }
 
     override fun initView() {
-        val adapter = ListCategoryAdapter()
+//        val adapter = ListCategoryAdapter()
+        val adapter = ListPopularAdapter()
         binding.recyclerView.adapter = adapter
 
-        viewModel.getListCategory().observe(viewLifecycleOwner, Observer {
+        viewModel.getListPopular().observe(viewLifecycleOwner, Observer {
             it?.let {
+                val i = 6
                 adapter.submitList(it)
             }
         })
+
     }
 
 }
